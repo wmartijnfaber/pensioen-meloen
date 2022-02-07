@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Action, Selector, State, StateContext} from '@ngxs/store';
+import {BackendService} from "../service/backend.service";
 
 
 /// Actions
@@ -38,12 +39,14 @@ export interface EmploymentStateModel {
 }
 
 export interface PensionStateModel {
+  id: number | undefined;
   user: UserStateModel| undefined
   employment: EmploymentStateModel| undefined
 }
 
 @State<PensionStateModel>({
   defaults: {
+    id: undefined,
     user: undefined,
     employment: undefined,
   },
@@ -52,6 +55,9 @@ export interface PensionStateModel {
 
 @Injectable()
 export class PensionState {
+
+  constructor(private backendService: BackendService) {
+  }
 
   @Selector()
   static getPensioen(state: PensionStateModel): PensionStateModel {
@@ -74,5 +80,10 @@ export class PensionState {
        employment: ctx.getState().employment,
        user: action.payload
       })
+    this.updateBackend(action.payload);
+  }
+
+  private updateBackend(user:UserStateModel) {
+    this.backendService.updateBackend(user);
   }
 }
