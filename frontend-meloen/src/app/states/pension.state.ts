@@ -69,10 +69,10 @@ export class PensionState {
   }
 
   @Action(PatchUser)
-  patchUser(ctx: StateContext<PensionStateModel>, action: UserStateModel) {
+  patchUser(ctx: StateContext<PensionStateModel>, action: {payload: UserStateModel}) {
     ctx.patchState({
        employment: ctx.getState().employment,
-       user: action
+       user: action.payload
       })
   }
 }

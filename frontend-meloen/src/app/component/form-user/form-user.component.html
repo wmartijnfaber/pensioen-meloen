@@ -4,20 +4,10 @@
       <mat-label> Voornaam </mat-label>
       <input matInput formControlName="firstname">
     </mat-form-field>
-  </section>
-  <section class="form-row">
   <mat-form-field>
       <mat-label> Achternaam </mat-label>
       <input matInput formControlName="lastname">
     </mat-form-field>
-  </section>
-  <section class="form-row">
-    <mat-form-field>
-      <mat-label> Email </mat-label>
-      <input matInput formControlName="email">
-    </mat-form-field>
-  </section>
-  <section class="form-row">
     <mat-form-field>
       <mat-label>Geboorte datum</mat-label>
       <input matInput formControlName="dateOfBirth"  [matDatepicker]="picker">
@@ -27,11 +17,30 @@
   </section>
   <section class="form-row">
     <mat-form-field>
+      <mat-label> Email </mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+  </section>
+
+  <section class="form-row">
+    <mat-form-field>
       <mat-label> Straat </mat-label>
       <input matInput formControlName="street">
     </mat-form-field>
+    <mat-form-field>
+      <mat-label> Huisnummer </mat-label>
+      <input matInput formControlName="housenumber">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Huisnummer toevoeging </mat-label>
+      <input matInput formControlName="housenumberAddition">
+    </mat-form-field>
   </section>
   <section class="form-row">
+  <mat-form-field>
+    <mat-label> Postcode </mat-label>
+    <input matInput formControlName="zip">
+  </mat-form-field>
     <mat-form-field>
       <mat-label> Stad </mat-label>
       <input matInput formControlName="city">

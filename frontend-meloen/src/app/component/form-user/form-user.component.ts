@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {PatchUser, PensionState, UserStateModel} from "../../states/pension.state";
 import {Select, Store} from "@ngxs/store";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-form-user',
@@ -26,11 +27,11 @@ export class FormUserComponent implements OnInit {
     zip: [null , [Validators.required, Validators.minLength(6)]],
     housenumber: [null , Validators.required],
     housenumberAddition: [null],
-    preferredRetireAge: [null, Validators.required, [Validators.minLength(2), Validators.maxLength(3)]],
+    preferredRetireAge: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
   })
 
 
-  constructor(private formBuilder: FormBuilder, private store: Store) { }
+  constructor(private formBuilder: FormBuilder, private store: Store, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.user$.subscribe(res => {
@@ -40,7 +41,7 @@ export class FormUserComponent implements OnInit {
 
   private patchForm(user:UserStateModel) {
     if(user) {
-      this.userForm.setValue({...user});
+      this.userForm.setValue(user);
     }
   }
 
@@ -48,7 +49,7 @@ export class FormUserComponent implements OnInit {
     let user: UserStateModel;
     if(this.userForm.valid) {
       this.store.dispatch(new PatchUser(this.userForm.value)).subscribe(res => {
-        console.log('state patched');
+        this._snackBar.open("Formulier opgeslagen");
       })
     }
   }
