@@ -1,0 +1,36 @@
+@import "src/styles";
+
+.container {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  //flex-direction: column;
+  background: url("../assets/background.jpeg");
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: repeat;
+  padding: 0px !important;
+}
+
+
+.item {
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
+  max-width: 800px;
+  min-height: 100%;
+
+}
+
+
+mat-selection-list {
+  width: 100%;
+}

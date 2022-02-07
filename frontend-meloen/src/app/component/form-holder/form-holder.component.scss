@@ -1,0 +1,17 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.clean-background{
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content  {
+  width: 80%;
+}

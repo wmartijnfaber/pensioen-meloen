@@ -1,0 +1,47 @@
+<form [formGroup]="userForm">
+  <section class="form-row">
+    <mat-form-field>
+      <mat-label> Voornaam </mat-label>
+      <input matInput formControlName="firstname">
+    </mat-form-field>
+  </section>
+  <section class="form-row">
+  <mat-form-field>
+      <mat-label> Achternaam </mat-label>
+      <input matInput formControlName="lastname">
+    </mat-form-field>
+  </section>
+  <section class="form-row">
+    <mat-form-field>
+      <mat-label> Email </mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+  </section>
+  <section class="form-row">
+    <mat-form-field>
+      <mat-label>Geboorte datum</mat-label>
+      <input matInput formControlName="dateOfBirth"  [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </section>
+  <section class="form-row">
+    <mat-form-field>
+      <mat-label> Straat </mat-label>
+      <input matInput formControlName="street">
+    </mat-form-field>
+  </section>
+  <section class="form-row">
+    <mat-form-field>
+      <mat-label> Stad </mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+  </section>
+  <section class="form-row">
+    <mat-form-field>
+      <mat-label> Gewenste pensioen leeftijd </mat-label>
+      <input matInput formControlName="preferredRetireAge">
+    </mat-form-field>
+  </section>
+</form>
+<button mat-raised-button color="primary" (click)="submitForm()" ><mat-icon>save</mat-icon>Save</button>
