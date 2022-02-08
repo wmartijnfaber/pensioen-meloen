@@ -1,4 +1,4 @@
-package nl.pensioenmeloen.calculator.model;
+package nl.pensioenmeloen.calculator.dto;
 
 import lombok.Builder;
 import lombok.Getter;

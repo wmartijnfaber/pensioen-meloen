@@ -1,6 +1,6 @@
 package nl.pensioenmeloen.calculator.rest;
 
-import nl.pensioenmeloen.calculator.model.Pension;
+import nl.pensioenmeloen.calculator.dto.Pension;
 import nl.pensioenmeloen.calculator.service.PensionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
