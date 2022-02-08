@@ -28,10 +28,8 @@ public class PensionService {
 
     public Mono<Pension> getPensionById(Long id) {
         Mono<Integer> monoInteger = pensionCalculatorClient.getCalculation(80);
-        //Mono<EmploymentEntity> monoEmployment = employmentRepository.findEmploymentEntityById(id);
-        //Mono<UserEntity> monoUser = userRepository.findUserEntityById(id);
-        Mono<EmploymentEntity> monoEmployment = Mono.just(new EmploymentEntity());
-        Mono<UserEntity> monoUser = Mono.just(new UserEntity());
+        Mono<EmploymentEntity> monoEmployment = employmentRepository.findEmploymentEntityById(id);
+        Mono<UserEntity> monoUser = userRepository.findUserEntityById(id);
 
 
 

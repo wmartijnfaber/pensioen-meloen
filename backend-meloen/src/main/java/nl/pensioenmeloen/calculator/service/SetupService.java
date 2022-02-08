@@ -23,7 +23,6 @@ public class SetupService {
     public void setup() {
         EmploymentEntity employmentEntity = new EmploymentEntity();
         UserEntity userEntity = new UserEntity();
-        userEntity.setId(1L);
         userEntity.setCity("Leusden");
         userEntity.setDateOfBirth(LocalDateTime.now());
         userEntity.setEmail("martijn@viteon.nl");
@@ -33,7 +32,6 @@ public class SetupService {
         userEntity.setHousenumber(4);
         userEntity.setStreet("Platanenlaan 4");
 
-        employmentEntity.setId(1L);
         employmentEntity.setEmploymentType("Vast dienstverband");
         employmentEntity.setEmployerName("beFrank");
         employmentEntity.setSalary(5000);

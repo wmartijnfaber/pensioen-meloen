@@ -21,4 +21,4 @@ Create TABLE employment(
     deposit_bank_account varchar(24) not null,
     PRIMARY KEY (id)
 );
-
+commit;
