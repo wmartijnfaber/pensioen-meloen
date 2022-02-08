@@ -6,8 +6,9 @@ import nl.pensioenmeloen.calculator.repository.entities.EmploymentEntity;
 import nl.pensioenmeloen.calculator.repository.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import reactor.core.publisher.Mono;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 
 @Service
@@ -19,8 +20,7 @@ public class SetupService {
     @Autowired
     EmploymentRepository employmentRepository;
 
-    @PostConstruct
-    private void setup() {
+    public void setup() {
         EmploymentEntity employmentEntity = new EmploymentEntity();
         UserEntity userEntity = new UserEntity();
         userEntity.setId(1L);

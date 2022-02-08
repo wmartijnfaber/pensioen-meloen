@@ -28,10 +28,17 @@ public class PensionService {
 
     public Mono<Pension> getPensionById(Long id) {
         Mono<Integer> monoInteger = pensionCalculatorClient.getCalculation(80);
-        Mono<EmploymentEntity> monoEmployment = employmentRepository.findEmploymentEntityById(id);
-        Mono<UserEntity> monoUser = userRepository.findUserEntityById(id);
+        //Mono<EmploymentEntity> monoEmployment = employmentRepository.findEmploymentEntityById(id);
+        //Mono<UserEntity> monoUser = userRepository.findUserEntityById(id);
+        Mono<EmploymentEntity> monoEmployment = Mono.just(new EmploymentEntity());
+        Mono<UserEntity> monoUser = Mono.just(new UserEntity());
+
+
 
         return Mono.zip(monoInteger, monoUser, monoEmployment).flatMap(response ->{
+            System.out.println(response.getT1());
+            System.out.println(response.getT2());
+            System.out.println(response.getT3());
             return
                 Mono.just(PensionMapper.INSTANCE.getPensionDto(response.getT1(),
                         UserMapper.INSTANCE.entityToDto(response.getT2()),
