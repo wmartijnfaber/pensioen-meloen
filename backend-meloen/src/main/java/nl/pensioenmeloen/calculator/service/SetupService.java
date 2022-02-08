@@ -1,10 +1,9 @@
 package nl.pensioenmeloen.calculator.service;
 
-import nl.pensioenmeloen.calculator.dto.Employment;
-import nl.pensioenmeloen.calculator.dto.Pension;
-import nl.pensioenmeloen.calculator.dto.User;
 import nl.pensioenmeloen.calculator.repository.EmploymentRepository;
 import nl.pensioenmeloen.calculator.repository.UserRepository;
+import nl.pensioenmeloen.calculator.repository.entities.EmploymentEntity;
+import nl.pensioenmeloen.calculator.repository.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,25 +21,30 @@ public class SetupService {
 
     @PostConstruct
     private void setup() {
-        User user = User.builder()
-                .city("Leusden")
-                .dateOfBirth(LocalDateTime.now())
-                .email("martijn@viteon.nl")
-                .firstname("Martijn")
-                .lastname("Faber")
-                .preferredRetireAge(67)
-                .housenumber(4)
-                .street("Platanenlaan 4")
-                .build();
+        EmploymentEntity employmentEntity = new EmploymentEntity();
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(1L);
+        userEntity.setCity("Leusden");
+        userEntity.setDateOfBirth(LocalDateTime.now());
+        userEntity.setEmail("martijn@viteon.nl");
+        userEntity.setFirstname("Martijn");
+        userEntity.setLastname("Faber");
+        userEntity.setPreferredRetireAge(67);
+        userEntity.setHousenumber(4);
+        userEntity.setStreet("Platanenlaan 4");
 
-        Employment employment = Employment.builder()
-                .employmentType("Vast dienstverband")
-                .employerName("beFrank")
-                .salary(5000)
-                .depositBankAccount("NLABNA123456789")
-                .build();
+        employmentEntity.setId(1L);
+        employmentEntity.setEmploymentType("Vast dienstverband");
+        employmentEntity.setEmployerName("beFrank");
+        employmentEntity.setSalary(5000);
+        employmentEntity.setCurrentValue(100000.00);
+        employmentEntity.setDepositBankAccount("NLABNA123456789");
 
-        Pension.builder().employment(employment).user(user).build();
+        employmentRepository.save(employmentEntity);
+        userRepository.save(userEntity);
+
+        // EmploymentEntity e = employmentRepository.findEmploymentEntityById(1L).block();
+        System.out.println("Setup complete");
 
     }
 

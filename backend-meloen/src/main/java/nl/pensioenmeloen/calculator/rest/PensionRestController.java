@@ -3,9 +3,7 @@ package nl.pensioenmeloen.calculator.rest;
 import nl.pensioenmeloen.calculator.dto.Pension;
 import nl.pensioenmeloen.calculator.service.PensionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -15,8 +13,8 @@ public class PensionRestController {
     @Autowired
     private PensionService pensionService;
 
-    @GetMapping("/get")
-    public Mono<Pension> getPensionById() {
-        return Mono.just(pensionService.getDummy());
+    @GetMapping("/get/{id}")
+    public Mono<Pension> getPensionById(@PathVariable Long id) {
+        return pensionService.getPensionById(id);
     }
 }

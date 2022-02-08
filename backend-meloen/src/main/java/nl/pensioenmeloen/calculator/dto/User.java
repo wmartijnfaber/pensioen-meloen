@@ -1,13 +1,11 @@
 package nl.pensioenmeloen.calculator.dto;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @Builder
 public class User {
     private String firstname;
