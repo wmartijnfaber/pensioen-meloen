@@ -2,3 +2,4 @@
 .DS_Store
 backend-meloen/target/*
 backend-meloen/target/
+backend-dummy/target/*
