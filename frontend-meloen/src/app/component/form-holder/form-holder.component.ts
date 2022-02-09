@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Select, Selector, Store} from "@ngxs/store";
-import {PensionState} from "../../states/pension.state";
+import {PatchPension, PensionState} from "../../states/pension.state";
 import {Observable} from "rxjs";
+import {BackendService} from "../../service/backend.service";
 
 @Component({
   selector: 'app-form-holder',
@@ -15,26 +16,27 @@ export class FormHolderComponent implements OnInit {
 
   private pension: PensionState;
 
-  private loading: true;
+  private loading: boolean = true;
 
   private wantToSeeForm: true;
 
-  constructor() { }
-
-
+  constructor(private store: Store, private backendService: BackendService) {  }
 
   ngOnInit(): void {
+
+    this.backendService.getPension(1).subscribe(res => {
+      this.store.dispatch( new PatchPension(res))
+      this.loading = false;
+    })
+
     this.pension$.subscribe(res => {
       this.pension = res;
     })
   }
 
   doIshowForm(): boolean {
-    return true;
-    /*if(this.loading == false && this.loading == wantToSeeForm) {
-      return true;
-    }
-    return false;*/
+    return this.loading == false && this.wantToSeeForm == true
+
   }
 
 }

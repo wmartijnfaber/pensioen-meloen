@@ -8,6 +8,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/pension")
+@CrossOrigin(origins = "http://localhost:4200") // Lelijk, I know, maar kreeg de proxy.conf.json ff niet lekker in de front-end
 public class PensionRestController {
 
     @Autowired

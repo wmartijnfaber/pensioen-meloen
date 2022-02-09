@@ -11,6 +11,12 @@ export class PatchUser {
   }
 }
 
+export class PatchPension {
+  static readonly type = '[PensionStateModel] Patch Pension';
+  constructor(public  payload: PensionStateModel) {
+  }
+}
+
 
 /// Models
 
@@ -33,20 +39,21 @@ export interface UserStateModel {
 export interface EmploymentStateModel {
   employerName: string,
   salary: number,
+  currentValue: number,
   employmentType: string,
   depositBankAccount: string
 
 }
 
 export interface PensionStateModel {
-  id: number | undefined;
+  calculatedValue: number
   user: UserStateModel| undefined
   employment: EmploymentStateModel| undefined
 }
 
 @State<PensionStateModel>({
   defaults: {
-    id: undefined,
+    calculatedValue: 0,
     user: undefined,
     employment: undefined,
   },
@@ -73,6 +80,8 @@ export class PensionState {
   static getEmployment(state: PensionStateModel): EmploymentStateModel | undefined {
     return state.employment;
   }
+
+
 
   @Action(PatchUser)
   patchUser(ctx: StateContext<PensionStateModel>, action: {payload: UserStateModel}) {

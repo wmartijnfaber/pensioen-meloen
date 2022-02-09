@@ -12,10 +12,10 @@ export class BackendService {
   constructor(private http: HttpClient) {}
 
   public updateBackend(userModel: UserStateModel): Observable<PensionStateModel> {
-    return this.http.post<PensionStateModel>(environment.host+"/post", userModel);
+    return this.http.post<PensionStateModel>(environment.host+"/post/", userModel);
   }
 
   public getPension(id: number): Observable<PensionStateModel> {
-    return this.http.get<PensionStateModel>(environment.host+"/get" + id);
+    return this.http.get<PensionStateModel>(environment.host+"/api/pension/get/" + id);
   }
 }
