@@ -6,10 +6,7 @@ import nl.pensioenmeloen.calculator.repository.entities.EmploymentEntity;
 import nl.pensioenmeloen.calculator.repository.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import reactor.core.publisher.Mono;
 
-import java.time.LocalDateTime;
 
 @Service
 public class SetupService {
@@ -21,29 +18,26 @@ public class SetupService {
     EmploymentRepository employmentRepository;
 
     public void setup() {
-        EmploymentEntity employmentEntity = new EmploymentEntity();
-        UserEntity userEntity = new UserEntity();
-        userEntity.setCity("Leusden");
-        userEntity.setDateOfBirth(LocalDateTime.now());
-        userEntity.setEmail("martijn@viteon.nl");
-        userEntity.setFirstname("Martijn");
-        userEntity.setLastname("Faber");
-        userEntity.setPreferredRetireAge(67);
-        userEntity.setHousenumber(4);
-        userEntity.setStreet("Platanenlaan 4");
+        UserEntity userEntity = UserEntity.builder()
+        .city("Leusden")
+        .email("martijn@viteon.nl")
+        .firstname("Martijn")
+        .lastname("Faber")
+        .preferredRetireAge(67)
+        .housenumber(4)
+        .street("Platanenlaan 4")
+        .build();
 
-        employmentEntity.setEmploymentType("Vast dienstverband");
-        employmentEntity.setEmployerName("beFrank");
-        employmentEntity.setSalary(5000);
-        employmentEntity.setCurrentValue(100000.00);
-        employmentEntity.setDepositBankAccount("NLABNA123456789");
+        EmploymentEntity employmentEntity = EmploymentEntity.builder()
+        .employmentType("Vast dienstverband")
+        .employerName("beFrank")
+        .salary(5000)
+        .currentValue(100000.00)
+        .depositBankAccount("NLABNA123456789")
+        .build();
 
-        employmentRepository.save(employmentEntity);
-        userRepository.save(userEntity);
-
-        // EmploymentEntity e = employmentRepository.findEmploymentEntityById(1L).block();
-        System.out.println("Setup complete");
-
+        employmentRepository.save(employmentEntity).subscribe();
+        userRepository.save(userEntity).subscribe();
     }
 
 }

@@ -1,20 +1,18 @@
 package nl.pensioenmeloen.calculator.repository.entities;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 
 @Table("user")
-@Entity
 @Data
-@NoArgsConstructor
+@Builder
 public class UserEntity {
 
     @Id
