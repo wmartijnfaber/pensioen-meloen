@@ -7,7 +7,7 @@ import * as confetti from 'canvas-confetti';
   templateUrl: './confetti.component.html',
   styleUrls: ['./confetti.component.scss']
 })
-export class ConfettiComponent implements AfterContentInit{
+export class ConfettiComponent implements AfterContentInit {
 
 
   constructor(
@@ -20,7 +20,6 @@ export class ConfettiComponent implements AfterContentInit{
     const canvas = this.renderer2.createElement('canvas');
 
     this.renderer2.appendChild(this.elementRef.nativeElement, canvas);
-    //this.renderer2.setStyle(canvas, 'width','100%')
 
     const myConfetti = confetti.create(canvas, {
       resize: true,
@@ -42,7 +41,5 @@ export class ConfettiComponent implements AfterContentInit{
     this.suprise();
   }
 
-  ngOnDestroy(): void {
-  }
 
 }
