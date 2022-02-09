@@ -23,15 +23,15 @@ export class PatchPension {
 
 
 export interface UserStateModel {
-  firstname: string,
+  firstname: string ,
   lastname: string,
   email: string,
-  dateOfBirth: string,
+  dateOfBirth?: string,
   street: string,
   city: string,
-  zip: string,
+  zip?: string,
   housenumber: number,
-  housenumberAddition: string,
+  housenumberAddition?: string,
   preferredRetireAge: number;
 
 }
@@ -42,13 +42,12 @@ export interface EmploymentStateModel {
   currentValue: number,
   employmentType: string,
   depositBankAccount: string
-
 }
 
 export interface PensionStateModel {
   calculatedValue: number
-  user: UserStateModel| undefined
-  employment: EmploymentStateModel| undefined
+  user?: UserStateModel
+  employment?: EmploymentStateModel
 }
 
 @State<PensionStateModel>({
@@ -90,6 +89,13 @@ export class PensionState {
        user: action.payload
       })
     this.updateBackend(action.payload);
+  }
+
+  @Action(PatchPension)
+  patchPension(ctx: StateContext<PensionStateModel>, action: {payload: PensionStateModel}) {
+    ctx.patchState({
+     ...action.payload
+    })
   }
 
   private updateBackend(user:UserStateModel) {
