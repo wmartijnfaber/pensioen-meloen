@@ -21,6 +21,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HttpClientModule} from "@angular/common/http";
+import {ConfettiComponent} from "./util/confetti/confetti.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {HttpClientModule} from "@angular/common/http";
     FormHolderComponent,
     FormUserComponent,
     OverviewPensionComponent,
+    ConfettiComponent,
 
   ],
   imports: [

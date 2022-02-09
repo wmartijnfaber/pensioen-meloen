@@ -4,6 +4,7 @@
   </section>
   <section class="content">
     <app-overview-pension [pension]="pension"></app-overview-pension>
-    <app-form-user *ngIf="!doIshowForm()"></app-form-user>
+    <app-form-user *ngIf="doIshowForm()"></app-form-user>
   </section>
 </section>
+<app-confetti *ngIf="fireWorksGandalf"></app-confetti>

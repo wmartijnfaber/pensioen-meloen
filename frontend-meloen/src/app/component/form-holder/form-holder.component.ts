@@ -18,7 +18,9 @@ export class FormHolderComponent implements OnInit {
 
   private loading: boolean = true;
 
-  private wantToSeeForm: true;
+  private wantToSeeForm: boolean = true;
+
+  public fireWorksGandalf: boolean = false;
 
   constructor(private store: Store, private backendService: BackendService) {  }
 
@@ -26,6 +28,7 @@ export class FormHolderComponent implements OnInit {
 
     this.backendService.getPension(1).subscribe(res => {
       this.store.dispatch( new PatchPension(res)).subscribe(res => {
+        this.fireworksGandalfFireWorks();
         this.loading = false
       });
     })
@@ -37,6 +40,13 @@ export class FormHolderComponent implements OnInit {
 
   doIshowForm(): boolean {
     return this.loading == false && this.wantToSeeForm == true
+  }
+
+  private async fireworksGandalfFireWorks() {
+    this.fireWorksGandalf = true;
+    setTimeout(() => {
+      this.fireWorksGandalf = false;
+    }, 1500)
   }
 
 }
