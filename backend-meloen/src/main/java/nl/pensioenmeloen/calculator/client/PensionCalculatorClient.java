@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+
 
 @Component
 public class PensionCalculatorClient {
@@ -22,6 +24,7 @@ public class PensionCalculatorClient {
                 .uri("/calculator/get/" +age)
                 .retrieve()
                 .bodyToMono(Integer.class)
+                .timeout(Duration.ofSeconds(10))
                 .doOnError(throwable -> logger.error("Helaas pindakaas, iets gaat niet helemaal lekker bij het ophalen van {}", remoteHost))
                 .onErrorReturn(0);
     }
