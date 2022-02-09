@@ -28,12 +28,8 @@ public class PensionService {
 
     public Mono<Pension> getPensionById(Long id) {
         Mono<Integer> monoInteger = pensionCalculatorClient.getCalculation(80);
-        employmentRepository.findAll().subscribe(item -> {System.out.println(item);});
         Mono<EmploymentEntity> monoEmployment = employmentRepository.findById(id);
         Mono<UserEntity> monoUser = userRepository.findById(id);
-
-
-
 
         return Mono.zip(monoInteger, monoUser, monoEmployment).flatMap(response ->{
             return
