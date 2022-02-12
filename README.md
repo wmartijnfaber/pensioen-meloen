@@ -15,3 +15,24 @@ Ik probeer de test opzet te laten draaien in docker, wellicht allemaal in 1, wel
 Nou voor nu even genoeg getypt, tijd om dadelijk wat te coderen.
 
 Ciao!
+
+
+#####
+
+Alright even een update. De grove lijn zit er nu wel een beetje in. Ja ik weet het ik heb nog niet voldoende test gemaakt (0 exact). Ik ben deze case ook niet helemaal aangevlogen zoals ik normaal werk, maar goed, we zijn nu hier. 
+
+Momenteel zijn er 3 applicaties, frontend, backend, en een dummy backend die een random getal terug geeft. Ik zeg het eerlijk, de backend was ff geklooi met optuigen  dat zat er vooral in mn h2 database initiatie. Om 1 of andere vage reden kreeg ik de PK generatie niet helemaal lekker, enfin, koste wat tijd. 
+
+Ik vraag me toch een beetje af of ik het goed heb gedaan. Gezien het object heb ik gekozen voor een Mono, we halen geen lijsten oid op. Ik gebruik Mono.zip omdat ik vanuit 3 bronnen (2 repo's en een externe call) 1 object ga maken, hier zit ook mijn twijfel, het voelt een beetje matig om te wachten op alle 3 de bronnen. Achteraf gezien was het makkelijker om losse calls te maken, maar dat voelde een beetje als valsspelen. 
+
+Let aub niet op het data model, ik heb gekozen om het grof door tweeen te hakken, niet omdat het perce goed is, maar omdat ik zelf benieuwd was hoe ik dat ging oplossen. 
+
+Eigenlijk heb ik de hele formule zoals in de case omschreven er nog niet inzitten. Komt de volgende ronde, ook staat docker nog op de planning.
+
+Voor nu weer even genoeg, ga er morgen weer wat tijd aan besteden.
+
+Ik hoop dat met jullie ook alles goed gaat :-)
+
+Spater!
+
+#### 09-02-22 ####
