@@ -1,1 +1,6 @@
-<h2>Huidige waarde:  {{pension.calculatedValue | currency:"EUR":"symbol" }}</h2>
+<h2>Berekende waarde:  {{pension.calculatedValue | currency:"EUR":"symbol" }}*</h2>
+<h3>Huidige waarde:  {{pension.employment?.currentValue| currency:"EUR":"symbol" }}</h3>
+<h3>Uw werkgever:  <strong>{{pension.employment?.employerName}}</strong></h3>
+<h3>Dienstverband:  {{pension.employment?.employmentType}}</h3>
+<h3>Salaris:  {{pension.employment?.salary| currency:"EUR":"symbol" }}</h3>
+<p class="sneaky-disclaimer"> * aan deze gegevens kunnen geen rechten worden ontleend ;-)</p>
