@@ -3,7 +3,7 @@ package nl.pensioenmeloen.calculator.repository.entities;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
@@ -20,7 +20,7 @@ public class UserEntity {
     private String firstname;
     private String lastname;
     private String email;
-    private LocalDateTime dateOfBirth;
+    private LocalDate dateOfBirth;
     private String street;
     private String city;
     private String zip;

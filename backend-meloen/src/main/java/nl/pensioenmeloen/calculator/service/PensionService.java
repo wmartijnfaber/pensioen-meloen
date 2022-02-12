@@ -2,6 +2,7 @@ package nl.pensioenmeloen.calculator.service;
 
 import nl.pensioenmeloen.calculator.client.PensionCalculatorClient;
 import nl.pensioenmeloen.calculator.dto.Pension;
+import nl.pensioenmeloen.calculator.dto.User;
 import nl.pensioenmeloen.calculator.mapper.EmploymentMapper;
 import nl.pensioenmeloen.calculator.mapper.PensionMapper;
 import nl.pensioenmeloen.calculator.mapper.UserMapper;
@@ -13,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
@@ -31,6 +33,12 @@ public class PensionService {
 
     @Autowired
     private PensionCalculatorClient pensionCalculatorClient;
+
+    public Mono<Pension> saveUser(User user) {
+        return userRepository.save(UserMapper.INSTANCE.dtoToEntity(user)).flatMap(item -> {
+            return getPensionById(user.getId());
+        });
+    }
 
     public Mono<Pension> getPensionById(Long id) {
         Mono<Integer> monoInteger = pensionCalculatorClient.getCalculation(80);
