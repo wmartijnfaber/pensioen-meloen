@@ -29,7 +29,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label> Huisnummer </mat-label>
-      <input matInput formControlName="housenumber">
+      <input type="number" matInput formControlName="housenumber">
     </mat-form-field>
     <mat-form-field>
       <mat-label> Huisnummer toevoeging </mat-label>
@@ -49,7 +49,11 @@
   <section class="form-row">
     <mat-form-field>
       <mat-label> Gewenste pensioen leeftijd </mat-label>
-      <input matInput formControlName="preferredRetireAge">
+      <input type="number" matInput formControlName="preferredRetireAge">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Jaarlijkse storting in euro's </mat-label>
+      <input type="number" matInput formControlName="yearlyDeposit">
     </mat-form-field>
   </section>
 </form>

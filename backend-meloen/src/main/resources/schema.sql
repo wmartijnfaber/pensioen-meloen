@@ -9,7 +9,8 @@ Create TABLE user (
     zip varchar(6),
     housenumber int,
     housenumber_addition varchar(2),
-    preferred_retire_age int(3)
+    preferred_retire_age int(3),
+    yearly_deposit number(10)
 );
 Create TABLE employment(
     id int AUTO_INCREMENT primary key,

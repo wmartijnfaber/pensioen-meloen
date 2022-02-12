@@ -24,4 +24,5 @@ public class User {
     public Integer housenumber;
     public String housenumberAddition;
     public Integer preferredRetireAge;
+    public Integer yearlyDeposit;
 }

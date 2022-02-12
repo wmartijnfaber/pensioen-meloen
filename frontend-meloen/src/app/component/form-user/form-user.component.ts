@@ -29,6 +29,7 @@ export class FormUserComponent implements OnInit {
     housenumber: [null , Validators.required],
     housenumberAddition: [null],
     preferredRetireAge: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
+    yearlyDeposit: [null, [Validators.required]],
   })
 
 

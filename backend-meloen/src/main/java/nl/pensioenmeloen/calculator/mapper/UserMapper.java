@@ -22,6 +22,7 @@ public interface UserMapper {
     @Mapping(source="housenumber", target= "housenumber")
     @Mapping(source="housenumberAddition", target= "housenumberAddition")
     @Mapping(source="preferredRetireAge", target= "preferredRetireAge")
+    @Mapping(source="yearlyDeposit", target= "yearlyDeposit")
     User entityToDto(UserEntity entity);
 
     @Mapping(source="id", target= "id")
