@@ -22,8 +22,7 @@ export class FormUserComponent implements OnInit {
     firstname: [null, Validators.required],
     lastname: [null, Validators.required],
     email: [null, [Validators.required, Validators.email]],
-    //dateOfBirth: [null, Validators.required],
-    dateOfBirth: [null],
+    dateOfBirth: [null, Validators.required],
     street: [null , Validators.required],
     city: [null , Validators.required],
     zip: [null , [Validators.required, Validators.minLength(6)]],
@@ -48,6 +47,10 @@ export class FormUserComponent implements OnInit {
       const userconst = user as any;
       Object.keys(this.userForm.controls).forEach(field => {
         this.userForm.controls[field].patchValue(userconst[field]);
+
+        if(field == "dateOfBirth") {
+          this.userForm.controls[field].patchValue(new Date(userconst[field]));
+        }
       })
     }
   }
