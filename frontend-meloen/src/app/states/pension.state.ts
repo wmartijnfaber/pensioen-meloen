@@ -23,6 +23,7 @@ export class PatchPension {
 
 
 export interface UserStateModel {
+  id: number,
   firstname: string ,
   lastname: string,
   email: string,
@@ -37,6 +38,7 @@ export interface UserStateModel {
 }
 
 export interface EmploymentStateModel {
+  id: number,
   employerName: string,
   salary: number,
   currentValue: number,
@@ -62,7 +64,7 @@ export interface PensionStateModel {
 @Injectable()
 export class PensionState {
 
-  constructor(private backendService: BackendService) {
+  constructor() {
   }
 
   @Selector()
@@ -88,7 +90,6 @@ export class PensionState {
        employment: ctx.getState().employment,
        user: action.payload
       })
-    this.updateBackend(action.payload);
   }
 
   @Action(PatchPension)
@@ -96,9 +97,5 @@ export class PensionState {
     ctx.patchState({
      ...action.payload
     })
-  }
-
-  private updateBackend(user:UserStateModel) {
-    this.backendService.updateBackend(user);
   }
 }
