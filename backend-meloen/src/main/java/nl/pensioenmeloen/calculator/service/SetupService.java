@@ -7,6 +7,7 @@ import nl.pensioenmeloen.calculator.repository.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -36,8 +37,8 @@ public class SetupService {
         EmploymentEntity employmentEntity = EmploymentEntity.builder()
         .employmentType("Vast dienstverband")
         .employerName("beFrank")
-        .salary(5000)
-        .currentValue(100000.00)
+        .salary(BigDecimal.valueOf(5000))
+        .currentValue(BigDecimal.valueOf(100000.00))
         .depositBankAccount("NLABNA123456789")
         .build();
 

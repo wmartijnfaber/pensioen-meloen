@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
@@ -28,5 +29,10 @@ public class UserEntity {
     private String housenumberAddition;
     private Integer preferredRetireAge;
     private Integer yearlyDeposit;
+
+
+    public Integer getCurrentAge() {
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
+    }
 
 }
