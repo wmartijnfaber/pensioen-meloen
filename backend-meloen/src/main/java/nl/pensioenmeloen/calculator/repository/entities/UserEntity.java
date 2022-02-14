@@ -28,7 +28,6 @@ public class UserEntity {
     private Integer housenumber;
     private String housenumberAddition;
     private Integer preferredRetireAge;
-    private Integer yearlyDeposit;
 
 
     public Integer getCurrentAge() {

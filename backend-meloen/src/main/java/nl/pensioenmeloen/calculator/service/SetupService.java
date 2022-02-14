@@ -31,7 +31,6 @@ public class SetupService {
         .street("Platanenlaan 4")
         .dateOfBirth(LocalDate.of(1990, 2, 25))
         .zip("3833AX")
-        .yearlyDeposit(8000)
         .build();
 
         EmploymentEntity employmentEntity = EmploymentEntity.builder()
