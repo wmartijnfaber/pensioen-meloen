@@ -19,7 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 import {HttpClientModule} from "@angular/common/http";
 import {ConfettiComponent} from "./util/confetti/confetti.component";
 
@@ -51,7 +51,7 @@ import {ConfettiComponent} from "./util/confetti/confetti.component";
     MatNativeDateModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

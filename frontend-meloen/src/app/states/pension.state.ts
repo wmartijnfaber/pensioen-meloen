@@ -34,7 +34,6 @@ export interface UserStateModel {
   housenumber: number,
   housenumberAddition?: string,
   preferredRetireAge: number;
-  yearlyDeposit: number;
 
 }
 
