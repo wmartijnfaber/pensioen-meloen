@@ -3,6 +3,7 @@ package nl.pensioenmeloen.calculator.service;
 import nl.pensioenmeloen.calculator.repository.entities.EmploymentEntity;
 import nl.pensioenmeloen.calculator.repository.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 /**
  * This is a service for excellent business
  */
+@Service
 public class BusinessService {
 
     @Value("${franchise}")

@@ -34,6 +34,9 @@ public class PensionService {
     @Autowired
     private PensionCalculatorClient pensionCalculatorClient;
 
+    @Autowired
+    private BusinessService businessService;
+
     public Mono<Pension> saveUser(User user) {
         return userRepository.save(UserMapper.INSTANCE.dtoToEntity(user)).flatMap(item -> {
             return getPensionById(user.getId());
@@ -56,7 +59,7 @@ public class PensionService {
         return Mono.zip(monoInteger, monoUser, monoEmployment).flatMap(response ->
         {
             return
-                Mono.just(PensionMapper.INSTANCE.getPensionDto(response.getT1(),
+                Mono.just(PensionMapper.INSTANCE.getPensionDto(businessService.getValuePensionSimplified(response.getT2(),response.getT3()),
                         UserMapper.INSTANCE.entityToDto(response.getT2()),
                         EmploymentMapper.INSTANCE.entityToDto(response.getT3())));
         } );

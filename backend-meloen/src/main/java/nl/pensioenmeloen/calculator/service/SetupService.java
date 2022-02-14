@@ -40,6 +40,7 @@ public class SetupService {
         .salary(BigDecimal.valueOf(5000))
         .currentValue(BigDecimal.valueOf(100000.00))
         .depositBankAccount("NLABNA123456789")
+        .parttimePercentage(BigDecimal.valueOf(.8))
         .build();
 
         employmentRepository.save(employmentEntity).subscribe();

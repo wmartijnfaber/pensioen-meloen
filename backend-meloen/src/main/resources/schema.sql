@@ -18,7 +18,11 @@ Create TABLE employment(
     salary int,
     current_value int,
     employment_type varchar(32) not null,
-    deposit_bank_account varchar(24) not null
+    deposit_bank_account varchar(24) not null,
+    parttime_percentage DECIMAL default 1,
+    holiday_pay boolean default true,
+    number_of_additional_month int default 0,
+    yearly_bonus number(10) default 0
 
 );
 commit;

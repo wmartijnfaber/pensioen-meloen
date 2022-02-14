@@ -3,11 +3,11 @@ package nl.pensioenmeloen.calculator.mapper;
 import nl.pensioenmeloen.calculator.dto.Employment;
 import nl.pensioenmeloen.calculator.dto.Pension;
 import nl.pensioenmeloen.calculator.dto.User;
-import nl.pensioenmeloen.calculator.repository.entities.EmploymentEntity;
-import nl.pensioenmeloen.calculator.repository.entities.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+
+import java.math.BigDecimal;
 
 @Mapper
 public interface PensionMapper {
@@ -17,5 +17,5 @@ public interface PensionMapper {
     @Mapping(source = "calculatedValue", target = "calculatedValue")
     @Mapping(source = "employment", target = "employment")
     @Mapping(source = "user", target = "user")
-    Pension getPensionDto(Integer calculatedValue, User user, Employment employment);
+    Pension getPensionDto(BigDecimal calculatedValue, User user, Employment employment);
 }
